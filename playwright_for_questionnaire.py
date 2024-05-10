@@ -16,10 +16,10 @@ randomUA = random.choice(['Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US) Apple
 'Mozilla/5.0 (Windows; U; Windows NT 6.0; ja; rv:1.9.0.6) Gecko/2009011913 Firefox/3.0.6 (.NET CLR 3.5.30729)', 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:9.0.1) Gecko/20100101 Firefox/9.0.1'
 , 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:9.0.1) Gecko/20100101 Firefox/9.0.1'])
 
-api_url = 'http://v2.api.juliangip.com/dynamic/getips?auto_white=1&num=1&pt=1&result_type=text&split=1&trade_no=1846081008406246&sign=5621bb03d5a7a53543773ef25caf51fc'
+api_url = '?'
 proxy_ip = requests.get(api_url).text
-username = "19130603472"
-password = "e5a7Rq60"
+username = "?"
+password = "?"
 proxies = {
 "http": "http://%(user)s:%(pwd)s@%(proxy)s/" % {"user": username, "pwd": password, "proxy": proxy_ip},
 "https": "http://%(user)s:%(pwd)s@%(proxy)s/" % {"user": username, "pwd": password, "proxy": proxy_ip},
@@ -72,7 +72,7 @@ def run(playwright: Playwright) -> None:
     # ---------------------
 
 with sync_playwright() as playwright:
-    browser = playwright.firefox.launch(headless = True, proxy={"server": proxy_ip, "username": '19130603472', "password": 'e5a7Rq60'})
+    browser = playwright.firefox.launch(headless = True, proxy={"server": proxy_ip, "username": '?', "password": '?'})
     # browser = playwright.firefox.launch(headless = True)
     context = browser.new_context(user_agent=randomUA)
     # context.route('**/*.{png,jpg,jpeg,svg,gif}', lambda route, _: route.abort())
